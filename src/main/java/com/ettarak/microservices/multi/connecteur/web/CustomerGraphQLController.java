@@ -20,7 +20,9 @@ public class CustomerGraphQLController {
         return  customerRepository.findAll();
     }
     @QueryMapping
-    public Customer getCustomerById(@Argument Long id) {
-        return customerRepository.findById(id).get();
+    public Customer getCustomerById(@Argument Long id) throws Exception {
+        Customer customer = customerRepository.findById(id).orElse(null);
+        if(customer == null) throw new Exception(String.format("Customer %s not Found", id));
+        return customer;
     }
 }

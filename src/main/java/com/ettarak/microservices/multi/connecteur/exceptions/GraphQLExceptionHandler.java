@@ -29,6 +29,6 @@ public class GraphQLExceptionHandler  extends DataFetcherExceptionResolverAdapte
             public ErrorClassification getErrorType() {
                 return null;
             }
-        }
+        };
     }
 }
